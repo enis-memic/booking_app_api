@@ -6,10 +6,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :jwt_authenticatable, jwt_revocation_strategy: self
   
   # validation
-  validates :name presence: true
-  validates :email presence: true
+  validates :name, presence: true
+  validates :email, presence: true
 
   #association
   has_many :reservations
-  has_many_through :car
+  has_many :car, through: :reservations
 end
