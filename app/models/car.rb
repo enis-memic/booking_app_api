@@ -1,8 +1,8 @@
 class Car < ApplicationRecord
   # validation
-  validates :name, presence: true, message: 'Please enter car name'
-  validates :price, numericality: { greater_than: 0, message: 'Please enter a price greater than 0' }
-  validates :model, presence: true, message: 'Please enter car model'
+  validates :name, presence: true, length: { in: 4..250 }
+  validates :price, presence: true, numericality: { greater_than_or_equal_to: 0 }
+  validates :model, presence: true, length: { in: 4..250 }
 
   # association
   has_many :reservations

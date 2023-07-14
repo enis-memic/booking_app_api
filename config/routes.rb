@@ -17,14 +17,9 @@ Rails.application.routes.draw do
   end
 
   namespace :api do
-    resources :current_user, only: [:index]
-    resources :users, only: [:index, :show]
-
-
+    resources :cars
+    resources :users do
+    resources :reservations
+    end
   end
-
-  
-
-
-  
 end
