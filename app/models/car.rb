@@ -6,5 +6,5 @@ class Car < ApplicationRecord
 
   # association
   has_many :reservations
-  has_many_through :user
+  has_many :user, through: :reservations
 end
