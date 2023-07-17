@@ -1,6 +1,6 @@
 class Api::CarsController < ApplicationController
   before_action :set_car, only: [:show]
-    before_action :authenticate_user!
+  before_action :authenticate_user!
 
   def index
     @cars = Car.all

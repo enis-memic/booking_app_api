@@ -13,8 +13,4 @@ class User < ApplicationRecord
   # association
   has_many :reservations
   has_many :cars, through: :reservations
-
-  def jwt_payload
-    super
-  end
 end
