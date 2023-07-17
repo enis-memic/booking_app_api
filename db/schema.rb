@@ -27,8 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_14_114145) do
   create_table "reservations", force: :cascade do |t|
     t.string "city"
     t.date "reservation_date"
-    t.string "returning_date"
-    t.string "date"
+    t.date "returning_date"
     t.bigint "car_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
