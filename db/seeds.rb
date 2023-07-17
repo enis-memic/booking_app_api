@@ -29,4 +29,12 @@ cars = Car.create!([
         price: 100,
         description: 'The Audi A4 is a line of compact executive cars produced since 1994 by the German car manufacturer Audi, a subsidiary of the Volkswagen Group. The A4 has been built in five generations and is based on the Volkswagen Group B platform.'
       },
+      {
+        name: 'Club muscle',
+  description: 'Muscle cars are high-performance automobiles, typically from the 1960s and 1970s, characterized by their powerful engines, aggressive styling, and straight-line speed.',
+  image: 'https://img.freepik.com/photos-premium/voiture-bleue-plaque-immatriculation-rouge-qui-dit-ford-dessus_1340-35572.jpg?w=360',
+  price: 100000,
+  model: 'Chevrolet Camaro',
+      },
+      
     ])

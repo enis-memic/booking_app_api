@@ -17,9 +17,14 @@ class Api::CarsController < ApplicationController
       render json: { error: 'Something went wrong' }, status: :bad_request
     end
   end
-
+# to show details of single car
   def show
-    render json: @car, status: :ok
+    car = Car.find_by(id:params[:id])
+    if car
+      render json: car, status: :ok
+    else
+      render json{error: 'car not found'}
+    end  
   end
 
   def update
