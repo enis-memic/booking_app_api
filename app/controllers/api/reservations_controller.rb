@@ -1,5 +1,5 @@
 class Api::ReservationsController < ApplicationController
-  #   before_action :authenticate_user!
+    before_action :authenticate_user!
   def index
     render json: current_user.reservations.includes([:car]).order(id: :desc), status: :ok
   end
@@ -11,7 +11,7 @@ class Api::ReservationsController < ApplicationController
       render json: {
         status: 201,
         message: 'Reservation is created',
-        data: ReservationSerializer.new(reservation)
+        data: reservation
       }, status: :created
     else
       render json: { error: 'Something went wrong' }, status: :bad_request
@@ -25,7 +25,7 @@ class Api::ReservationsController < ApplicationController
       render json: {
         status: 200,
         message: 'Reservation cancelled',
-        data: ReservationSerializer.new(reservation)
+        data: reservation
       }, status: :ok
     else
       render json: { error: 'ERROR: Unable to cancel the reservation' }, status: :unprocessable_entity

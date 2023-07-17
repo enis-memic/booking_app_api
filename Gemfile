@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.2'
-gem 'active_model_serializers'
 gem 'devise'
 gem 'devise-jwt'
 gem 'rubocop'
