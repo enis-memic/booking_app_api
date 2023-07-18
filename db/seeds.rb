@@ -57,5 +57,12 @@ cars = Car.create!([
         price: 4000,
         description: 'Designed to deliver exceptional performance on both the road and the track. Powered by a twin-turbocharged 4.0-liter V8 engine that produces impressive power.'
       },
+      {
+        name: 'Lamborghini',
+        image: 'https://di-uploads-pod42.dealerinspire.com/lamborghinibroward/uploads/2022/03/2021-Lamborghini-Huraca%CC%81n-STO.jpg',
+        model: '2023',
+        price: 35000,
+        description: 'Italian luxury sports car manufacturer known for producing high-performance, exotic, and visually striking automobiles, characterized by their aggressive styling.'
+      }
       
     ])
