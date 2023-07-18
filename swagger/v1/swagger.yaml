@@ -1,0 +1,345 @@
+---
+openapi: 3.0.1
+info:
+  title: Bookings app API
+  version: v1
+servers:
+- url: "https://{defaultHost}"
+  variables:
+    defaultHost:
+      default: https://localhost:3000
+paths:
+  /users/sign_in:
+    post:
+      tags:
+      - Sign in
+      summary: Sign in
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/users_sign_in_body'
+      responses:
+        "200":
+          description: Signed in succesfully
+        "401":
+          description: Failed in sign in
+  /users/sign_out:
+    delete:
+      tags:
+      - Sign out
+      summary: Sign out
+      parameters:
+      - name: security
+        in: header
+        description: Bearer Token
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Logged out successfull
+        "401":
+          description: Invalid authorization token
+  /users:
+    post:
+      tags:
+      - Sign Up
+      summary: Sign Up
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/users_body'
+      responses:
+        "200":
+          description: Signed up successfully
+        "422":
+          description: Invalid request
+  /api/users/:
+    get:
+      tags:
+      - Current User
+      summary: Show Current User
+      responses:
+        "200":
+          description: Current User
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+        "401":
+          description: You must Login or Register.
+  /api/cars/:
+    get:
+      tags:
+      - All Cars
+      summary: List all cars
+      responses:
+        "200":
+          description: List of all cars found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/inline_response_200_1'
+  /api/cars:
+    post:
+      tags:
+      - Create a New Car
+      summary: All users can add car
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/api_cars_body'
+      responses:
+        "201":
+          description: Car created
+        "401":
+          description: You need to sign in before adding new car
+        "422":
+          description: Invalid request
+  /api/cars/{id}:
+    get:
+      tags:
+      - Detail page for specific car
+      summary: List Specific Car
+      parameters:
+      - name: id
+        in: path
+        description: Car ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Single car id displayed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api_cars_body'
+    delete:
+      tags:
+      - Delete a car
+      summary: Delete a car
+      parameters:
+      - name: id
+        in: path
+        description: Car ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Car deleted
+        "401":
+          description: Sign in before deleting a car
+        "404":
+          description: Car not found
+        "422":
+          description: Ivalid request
+  /api/users/{user_id}/reservations:
+    get:
+      tags:
+      - Display all users reservations
+      summary: Get user car reservations
+      parameters:
+      - name: user_id
+        in: path
+        description: Current User ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Display car reservation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/inline_response_200_2'
+        "401":
+          description: You must Login or Register.
+    post:
+      tags:
+      - Create Car Reservation
+      summary: Reserve A car
+      parameters:
+      - name: user_id
+        in: path
+        description: Current User ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/user_id_reservations_body'
+      responses:
+        "201":
+          description: Reservation created
+        "401":
+          description: You need to Sign in before continuing
+        "422":
+          description: Invalid request
+  /api/users/{user_id}/reservations/{id}:
+    delete:
+      tags:
+      - Delete a car reservation
+      summary: Delete Car Reservation
+      parameters:
+      - name: user_id
+        in: path
+        description: Current User ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      - name: id
+        in: path
+        description: Reservation ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Reservation deleted successfully
+        "401":
+          description: You need to Sign in before continuing
+        "404":
+          description: Could not find reservation with specific id
+components:
+  schemas:
+    users_sign_in_body:
+      required:
+      - email
+      - password
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+    users_body:
+      required:
+      - email
+      - name
+      - password
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+    inline_response_200:
+      required:
+      - email
+      - id
+      - name
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        email:
+          type: string
+    inline_response_200_1:
+      required:
+      - description
+      - id
+      - image
+      - model
+      - name
+      - price
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        image:
+          type: string
+        model:
+          type: string
+        price:
+          type: integer
+        description:
+          type: string
+    api_cars_body:
+      required:
+      - description
+      - id
+      - image
+      - model
+      - name
+      - price
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        image:
+          type: string
+        model:
+          type: string
+        price:
+          type: integer
+        description:
+          type: string
+    inline_response_200_2:
+      required:
+      - car
+      - id
+      - reservation_date
+      - returning_date
+      type: object
+      properties:
+        id:
+          type: integer
+        reservation_date:
+          type: string
+          format: date
+        returning_date:
+          type: string
+          format: date
+        car:
+          $ref: '#/components/schemas/api_cars_body'
+    user_id_reservations_body:
+      required:
+      - car_id
+      - reservation_date
+      - returning_date
+      type: object
+      properties:
+        reservation_date:
+          type: string
+          format: date
+        returning_date:
+          type: string
+          format: date
+        car_id:
+          type: integer
