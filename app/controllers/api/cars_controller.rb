@@ -1,6 +1,6 @@
 class Api::CarsController < ApplicationController
   before_action :set_car, only: [:show]
-  #   before_action :authenticate_user!
+  before_action :authenticate_user!
 
   def index
     @cars = Car.all
@@ -17,14 +17,9 @@ class Api::CarsController < ApplicationController
       render json: { error: 'Something went wrong' }, status: :bad_request
     end
   end
-# to show details of single car
+
   def show
-    @car = Car.find_by(id:params[:id])
-    if @car
-      render json: car, status: :ok
-    else
-      render json{error: 'car not found'}
-    end  
+    render json: @car, status: :ok
   end
 
   def update
