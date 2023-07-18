@@ -30,15 +30,15 @@ RSpec.describe Car, type: :model do
       expect(@car.description).to eq('Best car in a class.')
     end
   end
-    context 'Testing Associations' do
-      it 'belongs_to a user' do
-        assoc = Reservation.reflect_on_association(:user)
-        expect(assoc.macro).to eq :belongs_to
-      end
-  
-      it 'belongs_to a car' do
-        assoc = Reservation.reflect_on_association(:car)
-        expect(assoc.macro).to eq :belongs_to
-      end
+  context 'Testing Associations' do
+    it 'belongs_to a user' do
+      assoc = Reservation.reflect_on_association(:user)
+      expect(assoc.macro).to eq :belongs_to
     end
+
+    it 'belongs_to a car' do
+      assoc = Reservation.reflect_on_association(:car)
+      expect(assoc.macro).to eq :belongs_to
+    end
+  end
 end
