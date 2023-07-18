@@ -42,6 +42,20 @@ cars = Car.create!([
         model: '2022',
         price: 30000,
         description: 'Renowned German automobile manufacturer known for producing luxury vehicles, motorcycles, and engines. Founded in 1916, established a strong reputation for engineering.'
-      }
+      },
+      {
+        name: 'McLaren',
+        image: 'https://www.carscoops.com/wp-content/uploads/2022/03/2023-McLaren-720S-Canada-10th-Anniversary-MSO-1-10-45.jpg',
+        model: '2019',
+        price: 2000,
+        description: 'British manufacturer of high-performance sports cars and supercars. Founded in 1989, McLaren has a rich history in Formula 1 racing and has applied their expertise.',
+      },
+      {
+        name: 'McLaren',
+        image: 'https://cdn.motor1.com/images/mgl/vvjpA/s3/2018-mclaren-senna.jpg',
+        model: '2023',
+        price: 4000,
+        description: 'Designed to deliver exceptional performance on both the road and the track. Powered by a twin-turbocharged 4.0-liter V8 engine that produces impressive power.'
+      },
       
     ])
