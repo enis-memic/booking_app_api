@@ -19,8 +19,8 @@ class Api::CarsController < ApplicationController
   end
 # to show details of single car
   def show
-    car = Car.find_by(id:params[:id])
-    if car
+    @car = Car.find_by(id:params[:id])
+    if @car
       render json: car, status: :ok
     else
       render json{error: 'car not found'}
