@@ -26,15 +26,15 @@ cars = Car.create!([
         name: 'Audi A4',
         image: 'https://images.livemint.com/img/2021/01/05/1600x900/Audi1_1609834939606_1609834946676.jpg',
         model: '2021',
-        price: 100,
+        price: 1000,
         description: 'The Audi A4 is a line of compact executive cars produced since 1994 by the German car manufacturer Audi, a subsidiary of the Volkswagen Group. The A4 has been built in five generations and is based on the Volkswagen Group B platform.'
       },
       {
-        name: 'Club muscle',
-  description: 'Muscle cars are high-performance automobiles, typically from the 1960s and 1970s, characterized by their powerful engines, aggressive styling, and straight-line speed.',
-  image: 'https://img.freepik.com/photos-premium/voiture-bleue-plaque-immatriculation-rouge-qui-dit-ford-dessus_1340-35572.jpg?w=360',
-  price: 100000,
-  model: 'Chevrolet Camaro',
+        name: 'Club',
+        image: 'https://img.freepik.com/photos-premium/voiture-bleue-plaque-immatriculation-rouge-qui-dit-ford-dessus_1340-35572.jpg?w=360',
+        model: '2022',
+        price: 2000,
+        description: 'Muscle cars are high-performance automobiles, typically from the 1960s and 1970s, characterized by their powerful engines, aggressive styling, and straight-line speed.'
       },
       
     ])
