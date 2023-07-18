@@ -30,7 +30,7 @@ cars = Car.create!([
         description: 'The Audi A4 is a line of compact executive cars produced since 1994 by the German car manufacturer Audi, a subsidiary of the Volkswagen Group. The A4 has been built in five generations and is based on the Volkswagen Group B platform.'
       },
       {
-        name: 'Club',
+        name: 'Clubs',
         image: 'https://img.freepik.com/photos-premium/voiture-bleue-plaque-immatriculation-rouge-qui-dit-ford-dessus_1340-35572.jpg?w=360',
         model: '2022',
         price: 2000,
@@ -48,7 +48,7 @@ cars = Car.create!([
         image: 'https://www.carscoops.com/wp-content/uploads/2022/03/2023-McLaren-720S-Canada-10th-Anniversary-MSO-1-10-45.jpg',
         model: '2019',
         price: 2000,
-        description: 'British manufacturer of high-performance sports cars and supercars. Founded in 1989, McLaren has a rich history in Formula 1 racing and has applied their expertise.',
+        description: 'British manufacturer of high-performance sports cars and supercars. Founded in 1989, McLaren has a rich history in Formula 1 racing and has applied their expertise.'
       },
       {
         name: 'McLaren',
