@@ -63,6 +63,5 @@ cars = Car.create!([
         model: '2023',
         price: 35000,
         description: 'Italian luxury sports car manufacturer known for producing high-performance, exotic, and visually striking automobiles, characterized by their aggressive styling.'
-      }
-      
+      },  
     ])
