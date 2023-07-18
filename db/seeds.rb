@@ -36,5 +36,12 @@ cars = Car.create!([
         price: 2000,
         description: 'Muscle cars are high-performance automobiles, typically from the 1960s and 1970s, characterized by their powerful engines, aggressive styling, and straight-line speed.'
       },
+      {
+        name: 'Merchedes',
+        image: 'https://cdn-fastly.autoguide.com/media/2023/06/09/12766498/bmw-xm-hands-on-preview-5-reasons-it-s-bmw-s-new-flagship-model.jpg?size=720x845&nocrop=1',
+        model: '2022',
+        price: 30000,
+        description: 'Renowned German automobile manufacturer known for producing luxury vehicles, motorcycles, and engines. Founded in 1916, established a strong reputation for engineering.'
+      }
       
     ])
