@@ -151,7 +151,7 @@ paths:
                     - description
   '/api/cars':
     post:
-      summary: All users can add car
+      summary: Ony admin can add car
       tags:
         - Create a New Car
       parameters: []
@@ -159,7 +159,7 @@ paths:
         '201':
           description: Car created
         '401':
-          description: You need to sign in before adding new car
+          description: You need to sign in as admin before adding new car
         '422':
           description: Invalid request
       requestBody:
@@ -168,8 +168,6 @@ paths:
             schema:
               type: object
               properties:
-                id:
-                  type: integer
                 name:
                   type: string
                 image:
@@ -182,7 +180,6 @@ paths:
                   type: string
 
               required:
-                - id
                 - name
                 - image
                 - model
@@ -191,7 +188,7 @@ paths:
 
   '/api/cars/{id}':
     delete:
-      summary: Delete a car
+      summary: Only Admin can delete a car
       tags:
         - Delete a car
       parameters:
@@ -341,10 +338,16 @@ paths:
                   format: date
                 car_id:
                   type: integer
+                user_id:
+                  type: integer
+                city:
+                  type: string
               required:
                 - reservation_date
                 - returning_date
                 - car_id
+                - user_id
+                - city
   '/api/users/{user_id}/reservations/{id}':
     delete:
       summary: Delete Car Reservation

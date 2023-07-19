@@ -9,6 +9,7 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 50 }
   validates :email, presence: true, length: { in: 1..50 }, uniqueness: true
   validates :password, presence: true, length: { in: 6..20 }
+  validates :role, presence: true
 
   # association
   has_many :reservations

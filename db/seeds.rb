@@ -8,6 +8,14 @@
 
 # Car.destroy_all
 
+
+user = User.create!([
+{name: 'Admin',
+email:'admin@admin.com',
+password: 'password',
+role: 1},
+])
+
 cars = Car.create!([
     {
         name: 'Audi A4',
