@@ -42,9 +42,9 @@ paths:
       tags:
         - Sign out
       parameters:
-        - name: security
+        - name: Authorization
           in: header
-          description: Bearer Token
+          description: Bearer Token (Check Response Headers in signin or signup)
           schema:
             type: string
       responses:
