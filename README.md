@@ -180,6 +180,8 @@ To run tests, run the following command:
 
 👤 **Habtamu Birru**
 
+- GitHub: [@Habtamu210](https://github.com/Habtamu210)
+
 👤 **Musong Ernest**
 
 - GitHub: [@ernestmusong](https://github.com/ernestmusong)
