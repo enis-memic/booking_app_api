@@ -95,7 +95,8 @@
   -- Frontend
   -- Backend
 
-- Check here Kanban Board [Kanban Board](https://github.com/enis-memic/booking_app_api/projects/2)
+- Check here [Kanban Board](https://github.com/enis-memic/booking_app_api/projects/2)
+- Check here initial state of the [Kanban Board Screenshot](https://user-images.githubusercontent.com/116451144/252990574-b56bad7f-8041-4dac-a63e-1a2a12350778.png)
 
 <!-- React Frontend -->
 
@@ -188,12 +189,6 @@ To run tests, run the following command:
 - GitHub: [@PowerLevel9000](https://github.com/PowerLevel9000)
 - Twitter: [@PowerLevel9002](https://twitter.com/PowerLevel9002)
 - LinkedIn: [Adarsh pathak](https://linkedin.com/in/PowerLevel)
-
-👤 **Habtamu**
-
-- GitHub: [@Habtamu210](https://github.com/Habtamu210)
-- Twitter: [@beleyaha](https://twitter.com/beleyaha)
-- LinkedIn: [@habtamu-](https://www.linkedin.com/in/habtamu-birru/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
