@@ -178,6 +178,8 @@ To run tests, run the following command:
 - GitHub: [@enis-memic](https://github.com/enis-memic)
 - LinkedIn: [enis-memic](https://linkedin.com/in/enis-memic)
 
+👤 **Habtamu Birru**
+
 👤 **Musong Ernest**
 
 - GitHub: [@ernestmusong](https://github.com/ernestmusong)
