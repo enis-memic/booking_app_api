@@ -85,7 +85,7 @@
 
 ## 🗎 API Documentation <a name="api-docs"></a>
 
-- Check here API documentation [Booking app](https://app.swaggerhub.com/apis-docs/ENISMEMA/Bookings_app_API/v1)
+- Check here API documentation [Booking app](https://booking-app-api-lmvm.onrender.com/api-docs/index.html)
 
 <!-- Kanban Board -->
 
