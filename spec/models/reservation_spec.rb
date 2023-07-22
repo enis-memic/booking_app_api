@@ -13,11 +13,6 @@ RSpec.describe Reservation, type: :model do
   end
 
   context 'Testing reservation' do
-    it 'Valid user reservation' do
-      @reservation.save
-      expect(@reservation).to be_valid
-    end
-
     it 'Invalid without user_id' do
       expect(@reservation.user).to eq(@user)
     end

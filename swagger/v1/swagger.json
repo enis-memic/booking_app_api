@@ -193,24 +193,33 @@
             "application/json": {
               "schema": {
                 "type": "object",
+
                 "properties": {
-                  "reservations": {
-                    "type": "object",
-                    "properties": {
-                      "city": {
-                        "type": "string"
-                      },
-                      "date": {
-                        "type": "string"
-                      },
-                      "service_id": {
-                        "type": "number"
-                      }
-                    },
-                    "required": ["city", "date", "service_id"]
+                  "city": {
+                    "type": "string"
+                  },
+                  "reservation_date": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "returning_date": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "car_id": {
+                    "type": "number"
+                  },
+                  "user_id": {
+                    "type": "number"
                   }
                 },
-                "required": ["reservations"]
+                "required": [
+                  "city",
+                  "reservation_date",
+                  "returning_date",
+                  "car_id",
+                  "user_id"
+                ]
               }
             }
           }
