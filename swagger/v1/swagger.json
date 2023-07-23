@@ -208,17 +208,13 @@
                   },
                   "car_id": {
                     "type": "number"
-                  },
-                  "user_id": {
-                    "type": "number"
                   }
                 },
                 "required": [
                   "city",
                   "reservation_date",
                   "returning_date",
-                  "car_id",
-                  "user_id"
+                  "car_id"
                 ]
               }
             }
