@@ -1,19 +1,21 @@
 <a name="readme-top"></a>
 
 <div align="center">
-
-  <br/>
-
+  <img src="./personal-branding/app-logo.png" alt="logo" width="140"  height="auto" />
 </div>
+
+
 
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [📖 \[Booking app\] ](#-vip_cars_rails-)
+- [✒️ Uml Diagram](#diagram)
+- [📖 Booking App ](#-vip_cars_rails-)
+- [📖 Associate App ](#-vip_cars_rails-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
-  - [🗎 API Documentation](#api-docs)
+  - [📃 API Documentation](#api-docs)
   - [🗎 Kanban Board](#kanban-board)
   - [🚀 Live Demo ](#-live-demo-)
   - [💻 Getting Started ](#-getting-started-)
@@ -31,24 +33,37 @@
   - [❓ FAQ ](#-faq-)
   - [📝 License ](#-license-)
 
-# 📖 [Booking app] <a name="about-project"></a>
+<br />
+
+# ✒️ UML Diagram <a name='diagram'></a>
+<div align="center">
+  <img src="./uml-diagram.jpg" width="50%" alt="logo"  />
+</div>
+
+# 📖 Booking app <a name="about-project"></a>
 
 **Booking_app** is a fullstack web application that is built on rails framework and React which allows users to make basic reservations of their favorite cars and as well add in a car for rent.
 
-## 🛠 Built With <a name="built-with">
+# [📖 Booking App Frontend](https://github.com/ernestmusong/Booking-app-frontend) <a name="about-project"></a>
 
-- React, javascript
-- Rails
-- </a>
+Frontend of the app is build with Javascript as language and React - Redux as Framework, to render cars, forms for reservations,login... etc
+visit there and Follow the prerequisites   
+
+## 🛠 Built With <a name="built-with"></a>
+
+- Ruby
+- ROR 
+- Postgresql
+
 
 ### Tech Stack <a name="tech-stack"></a>
 
-> [Ruby on Rails](https://guides.rubyonrails.org/) (simplify as Rails) is a server-side web application framework written in Ruby under the MIT License. Rails is a model–view–controller (MVC) framework, providing default structures for a database, a web service, and web pages. It encourages and facilitates the use of web standards such as JSON or XML for data transfer and HTML, CSS and JavaScript for user interfacing.
+[Ruby on Rails](https://guides.rubyonrails.org/) (simplify as Rails) is a server-side web application framework written in Ruby under the MIT License. Rails is a model–view–controller (MVC) framework, providing default structures for a database, a web service, and web pages. It encourages and facilitates the use of web standards such as JSON or XML for data transfer and HTML, CSS and JavaScript for user interfacing.
 
 <details>
   <summary>Client</summary>
   <ul>
-    <li><a href="https://www.ruby-lang.org/en/">REACT</a></li>
+    <li><a href="https://www.ruby-lang.org/en/">Ruby</a></li>
   </ul>
 </details>
 
@@ -68,12 +83,12 @@
 
 ### Key Features <a name="key-features"></a>
 
-> Key features of the application are
+*Key features of the application*
 
-- **Login/Signup**
+- **Login/Sign up**
 - **Make a basic reservation**
 
-> Additional features
+*Additional features*
 
 - **Admin Role**
 - **Only Admin can add car**
@@ -91,7 +106,7 @@
 
 ## <img src="https://cdn-icons-png.flaticon.com/512/5360/5360804.png" width="23" height="20"/> Kanban Board <a name="kanban-board"></a>
 
-- We are a group of 4 team members, and our Kanban board is diveded in two parts:
+- We are a group of 4 team members, and our Kanban board is divided in two parts:
   -- Frontend
   -- Backend
 
@@ -106,13 +121,11 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo]()
+- [Live Demo](https://booking-app-frontend-0qon.onrender.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 💻 Getting Started <a name="getting-started"></a>
-
-> This project can be used by anyone for any good purpose.
 
 To get a local copy up and running, follow these steps.
 
@@ -124,6 +137,8 @@ In order to run this project you need:
 - React.js
 - [Node.js](https://nodejs.dev/en/) installed
 - [PostgreSQL](https://www.postgresql.org/) database installed
+
+**Note** for [Frontend](https://booking-app-frontend-0qon.onrender.com/) follow there prerequisites
 
 ### Setup
 
@@ -159,6 +174,7 @@ To run the project, execute the following command:
 
 ```sh
   npm run dev
+  rails s
 ```
 
 ### Run tests
