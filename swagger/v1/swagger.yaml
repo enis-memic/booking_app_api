@@ -1,0 +1,392 @@
+openapi: 3.0.1
+info:
+  title: Bookings app API
+  version: v1
+paths:
+  '/users/sign_in':
+    post:
+      summary: Sign in
+      tags:
+        - Sign in
+      parameters: []
+      responses:
+        '200':
+          description: Signed in succesfully
+        '401':
+          description: Failed in sign in
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    email:
+                      type: string
+                    password:
+                      type: string
+                  required:
+                    - email
+                    - password
+              required:
+                - user
+            example:
+              user:
+                email: string
+                password: string
+  '/users/sign_out':
+    delete:
+      summary: Sign out
+      tags:
+        - Sign out
+      security:
+        - bearer_auth: []
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Logged out successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                  message:
+                    type: string
+                required:
+                  - status
+                  - message
+  '/users':
+    post:
+      summary: Sign Up
+      tags:
+        - Sign Up
+      parameters: []
+      responses:
+        '200':
+          description: Signed up successfully
+        '422':
+          description: Invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    email:
+                      type: string
+                    password:
+                      type: string
+                  required:
+                    - name
+                    - email
+                    - password
+              required:
+                - user
+            example:
+              user:
+                name: string
+                email: string
+                password: string
+  '/api/users/':
+    get:
+      summary: Show Current User
+      tags:
+        - Current User
+      responses:
+        '200':
+          description: Current User
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  email:
+                    type: string
+                required:
+                  - id
+                  - name
+                  - email
+        '401':
+          description: You must Login or Register.
+
+  '/api/cars/':
+    get:
+      summary: List all cars
+      tags:
+        - All Cars
+      responses:
+        '200':
+          description: List of all cars found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                    image:
+                      type: string
+                    model:
+                      type: string
+                    price:
+                      type: integer
+                    description:
+                      type: string
+                  required:
+                    - id
+                    - name
+                    - image
+                    - model
+                    - price
+                    - description
+  '/api/cars':
+    post:
+      summary: Ony admin can add car
+      tags:
+        - Create a New Car
+      parameters: []
+      responses:
+        '201':
+          description: Car created
+        '401':
+          description: You need to sign in as admin before adding new car
+        '422':
+          description: Invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                image:
+                  type: string
+                model:
+                  type: string
+                price:
+                  type: integer
+                description:
+                  type: string
+
+              required:
+                - name
+                - image
+                - model
+                - price
+                - description
+
+  '/api/cars/{id}':
+    delete:
+      summary: Only Admin can delete a car
+      tags:
+        - Delete a car
+      parameters:
+        - name: id
+          in: path
+          description: Car ID
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Car deleted
+        '401':
+          description: Sign in before deleting a car
+        '404':
+          description: Car not found
+        '422':
+          description: Ivalid request
+
+    get:
+      summary: List Specific Car
+      tags:
+        - Detail page for specific car
+      parameters:
+        - name: id
+          in: path
+          description: Car ID
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Single car id displayed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  image:
+                    type: string
+                  model:
+                    type: string
+                  price:
+                    type: integer
+                  description:
+                    type: string
+                required:
+                  - id
+                  - name
+                  - image
+                  - model
+                  - price
+                  - description
+
+  '/api/users/{user_id}/reservations':
+    get:
+      summary: Get user car reservations
+      tags:
+        - Display all users reservations
+      parameters:
+        - name: user_id
+          in: path
+          description: Current User ID
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Display car reservation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    reservation_date:
+                      type: string
+                      format: date
+                    returning_date:
+                      type: string
+                      format: date
+                    car:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        name:
+                          type: string
+                        image:
+                          type: string
+                        model:
+                          type: string
+                        price:
+                          type: integer
+                        description:
+                          type: string
+                      required:
+                        - id
+                        - name
+                        - image
+                        - model
+                        - price
+                        - description
+                  required:
+                    - id
+                    - reservation_date
+                    - returning_date
+                    - car
+        '401':
+          description: You must Login or Register.
+    post:
+      summary: Reserve A car
+      tags:
+        - Create Car Reservation
+      parameters:
+        - name: user_id
+          in: path
+          description: Current User ID
+          required: true
+          schema:
+            type: integer
+      responses:
+        '201':
+          description: Reservation created
+        '401':
+          description: You need to Sign in before continuing
+        '422':
+          description: Invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reservation_date:
+                  type: string
+                  format: date
+                returning_date:
+                  type: string
+                  format: date
+                car_id:
+                  type: integer
+                user_id:
+                  type: integer
+                city:
+                  type: string
+              required:
+                - reservation_date
+                - returning_date
+                - car_id
+                - user_id
+                - city
+  '/api/users/{user_id}/reservations/{id}':
+    delete:
+      summary: Delete Car Reservation
+      tags:
+        - Delete a car reservation
+      parameters:
+        - name: user_id
+          in: path
+          description: Current User ID
+          required: true
+          schema:
+            type: integer
+        - name: id
+          in: path
+          description: Reservation ID
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Reservation deleted successfully
+        '401':
+          description: You need to Sign in before continuing
+        '404':
+          description: Could not find reservation with specific id
+
+servers:
+  - url: http://{defaultHost}
+    variables:
+      defaultHost:
+        default: localhost:3000

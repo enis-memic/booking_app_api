@@ -1,0 +1,295 @@
+{
+  "openapi": "3.0.1",
+  "components": {
+    "securitySchemes": {
+      "bearer_auth": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+  "paths": {
+    "/users/sign_in": {
+      "post": {
+        "summary": "User Sign In",
+        "tags": ["Users"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Logged in successfully"
+          },
+          "401": {
+            "description": "Couldn't find an active session"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user": {
+                    "type": "object",
+                    "properties": {
+                      "email": {
+                        "type": "string"
+                      },
+                      "password": {
+                        "type": "string"
+                      }
+                    },
+                    "required": ["email", "password"]
+                  }
+                },
+                "required": ["user"]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/sign_out": {
+      "delete": {
+        "summary": "User Sign Out",
+        "tags": ["Users"],
+        "security": [
+          {
+            "bearer_auth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Logout successfully"
+          }
+        }
+      }
+    },
+    "/api/cars": {
+      "get": {
+        "summary": "Retrieves a cars",
+        "tags": ["Cars"],
+        "responses": {
+          "200": {
+            "description": "cars list"
+          }
+        }
+      },
+      "post": {
+        "summary": "Only admin can add car",
+        "tags": ["Create a New Car"],
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Car created"
+          },
+          "401": {
+            "description": "You need to sign in as admin before adding a new car"
+          },
+          "422": {
+            "description": "Invalid request"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "image": {
+                    "type": "string"
+                  },
+                  "model": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "integer"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                },
+                "required": ["name", "image", "model", "price", "description"]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/cars/{id}": {
+      "get": {
+        "summary": "Retrieves a car",
+        "tags": ["Cars"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Car"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Only admin can delete a car",
+        "tags": ["Cars"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Car"
+          }
+        }
+      }
+    },
+    "/api/users/{id}/reservations": {
+      "get": {
+        "summary": "Get a reserved car as per the current user",
+        "tags": ["Reservation"],
+        "security": [
+          {
+            "bearer_auth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Cars list"
+          }
+        }
+      },
+      "post": {
+        "summary": "Reserve car for the current user",
+        "tags": ["Reservation"],
+        "security": [
+          {
+            "bearer_auth": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Reservation created"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+
+                "properties": {
+                  "city": {
+                    "type": "string"
+                  },
+                  "reservation_date": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "returning_date": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "car_id": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "city",
+                  "reservation_date",
+                  "returning_date",
+                  "car_id"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users/{id}/reservations/{id}": {
+      "delete": {
+        "summary": "Delete a Reservation",
+        "tags": ["Reservation"],
+        "security": [
+          {
+            "bearer_auth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Delete reservation"
+          }
+        }
+      }
+    },
+
+    "/users": {
+      "post": {
+        "summary": "User Sign Up",
+        "tags": ["Users"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Sign up successfully. Please check your email"
+          },
+          "422": {
+            "description": "User couldn't be created successfully"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "email": {
+                        "type": "string"
+                      },
+                      "password": {
+                        "type": "string"
+                      }
+                    },
+                    "required": ["email", "password"]
+                  }
+                },
+                "required": ["user"]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
