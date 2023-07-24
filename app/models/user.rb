@@ -12,6 +12,6 @@ class User < ApplicationRecord
   validates :role, presence: true
 
   # association
-  has_many :reservations
+  has_many :reservations, dependent: :destroy
   has_many :cars, through: :reservations
 end

@@ -7,6 +7,6 @@ class Car < ApplicationRecord
   validates :description, presence: true
 
   # association
-  has_many :reservations
+  has_many :reservations, dependent: :destroy
   has_many :users, through: :reservations
 end
