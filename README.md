@@ -4,8 +4,6 @@
   <img src="./personal-branding/app-logo.png" alt="logo" width="140"  height="auto" />
 </div>
 
-
-
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
@@ -36,6 +34,7 @@
 <br />
 
 # ✒️ UML Diagram <a name='diagram'></a>
+
 <div align="center">
   <img src="./uml-diagram.jpg" width="50%" alt="logo"  />
 </div>
@@ -47,14 +46,13 @@
 # [📖 Booking App Frontend](https://github.com/ernestmusong/Booking-app-frontend) <a name="about-project"></a>
 
 Frontend of the app is build with Javascript as language and React - Redux as Framework, to render cars, forms for reservations,login... etc
-visit there and Follow the prerequisites   
+visit there and Follow the prerequisites
 
 ## 🛠 Built With <a name="built-with"></a>
 
 - Ruby
-- ROR 
+- ROR
 - Postgresql
-
 
 ### Tech Stack <a name="tech-stack"></a>
 
@@ -83,12 +81,12 @@ visit there and Follow the prerequisites
 
 ### Key Features <a name="key-features"></a>
 
-*Key features of the application*
+_Key features of the application_
 
 - **Login/Sign up**
 - **Make a basic reservation**
 
-*Additional features*
+_Additional features_
 
 - **Admin Role**
 - **Only Admin can add car**
@@ -167,6 +165,10 @@ Install this project with:
 4. Please run `rails db:create` and `rails db:migrate`.
 5. Please run `rails db:seed` for gathering all the cars and admin user.
 6. Login for admin is: `(email: admin@admin.com ; password : password)`
+
+### To see app running locally
+
+- Please switch base url in frontend app from rendered url to our localhost url `http://localhost:3000/`
 
 ### Usage
 
