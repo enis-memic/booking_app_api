@@ -41,17 +41,28 @@ paths:
       summary: Sign out
       tags:
         - Sign out
+      security:
+        - bearer_auth: []
       parameters:
         - name: Authorization
           in: header
-          description: Bearer Token (Check Response Headers in signin or signup)
           schema:
             type: string
       responses:
         '200':
-          description: Logged out successfull
-        '401':
-          description: Invalid authorization token
+          description: Logged out successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                  message:
+                    type: string
+                required:
+                  - status
+                  - message
   '/users':
     post:
       summary: Sign Up
