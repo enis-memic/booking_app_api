@@ -118,8 +118,7 @@ _Additional features_
 - Frontend part of the project [Booking-app-frontend](https://github.com/ernestmusong/Booking-app-frontend)
 
 ## 🚀 Live Demo <a name="live-demo"></a>
-
-- [Live Demo](https://booking-app-frontend-0qon.onrender.com/)
+Currently, the live version of the app is not available. However, you can still view the app by following the provided prerequisites and process. Unfortunately, having a live version of a full-stack app can be quite expensive. I hope you understand the limitations we are facing. We are continuously working to improve the app and make it more accessible to everyone. Thank you for your patience and understanding.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
